@@ -6,30 +6,17 @@
  * characters should form a chessboard.
  */
 
-function chessboard(size) {
-    let str = "";
-    for (let i = 0; i < size; i++) {
-        if (i % 2 == 0) {
-            for (let j = 0; j < size; j++) {
-                if (j % 2 == 0) {
-                    str += " ";
-                } else {
-                    str += "#";
-                }
-            }
-        } else {
-            for (let j = 0; j < size; j++) {
-                if (j % 2 == 0) {
-                    str += "#";
-                } else {
-                    str += " ";
-                }
-            }
+function chessboard(width, height) {
+    let board = "";
+    for (let y = 0; y < height; y++) {
+        for (let x = 0; x < width; x++) {
+            board += ((x + y) % 2 == 0) ? " " : "#";
         }
-        str += "\n";
+        board += "\n";
     }
-    return str;
+    return board;
 }
 
-let size = 8;
-console.log(chessboard(size));
+let width = 8,
+    height = 8;
+console.log(chessboard(width, height));
